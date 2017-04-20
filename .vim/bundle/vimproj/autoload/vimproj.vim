@@ -25,7 +25,7 @@ function! vimproj#UpdateCommands()
                 \.'" -DCMAKE_BUILD_TYPE='.g:build_type
                 \.' -DCMAKE_EXPORT_COMPILE_COMMANDS=on <args>'
                 \.' && '
-                \.'ln -s "'.g:build_dir.'/compile_commands.json" "compile_commands.json" '
+                \.'ln -sf "'.g:build_dir.'/compile_commands.json" "compile_commands.json" '
 endfunction
 
 function! vimproj#SetCompilerId(compiler_id)

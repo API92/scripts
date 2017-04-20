@@ -129,7 +129,8 @@ def FlagsForFile(filename, **kwargs):
         ReadDatabase(db_dir) # Needed after updating cmake files.
         compilation_info = GetCompilationInfoForFile(filename)
         if not compilation_info or not len(compilation_info.compiler_flags_):
-          return None
+            return {'flags': ['/usr/bin/clang++', '-x', 'c++', '-std=c++14',
+                '-Wall', '-pedantic'], 'do_cache': True}
   
     final_flags = MakeRelativePathsInFlagsAbsolute(
         compilation_info.compiler_flags_,
