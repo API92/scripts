@@ -44,7 +44,7 @@ function! vimproj#SetBuildType(build_type)
     if a:build_type ==? 'Debug'
         let g:build_type = 'Debug'
     elseif a:build_type ==? 'Release'
-        let a:build_type = 'Release'
+        let g:build_type = 'Release'
     else
         let g:build_type = a:build_type
     endif
