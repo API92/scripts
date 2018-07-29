@@ -26,6 +26,11 @@ function! vimproj#UpdateCommands()
                 \.' -DCMAKE_EXPORT_COMPILE_COMMANDS=on <args>'
                 \.' && '
                 \.'ln -sf "'.g:build_dir.'/compile_commands.json" "compile_commands.json" '
+
+    execute 'command! -nargs=* Run :!`find '.g:build_dir.' -maxdepth 1 -type f -executable | head -n 1` <args>'
+    execute 'command! -nargs=* Runi :!`find '.g:build_dir.' -maxdepth 1 -type f -executable | head -n 1` <args> <input.txt'
+    execute 'command! -nargs=* Runo :!`find '.g:build_dir.' -maxdepth 1 -type f -executable | head -n 1` <args> >output.txt'
+    execute 'command! -nargs=* Runio :!`find '.g:build_dir.' -maxdepth 1 -type f -executable | head -n 1` <args> <input.txt >output.txt'
 endfunction
 
 function! vimproj#SetCompilerId(compiler_id)
